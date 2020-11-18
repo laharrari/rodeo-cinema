@@ -9,10 +9,10 @@ function Lobby() {
         <div className="flex justify-center items-center">
             <div>
                 <h1 className="mt-10 text-discordText text-2xl text-center font-bold">Lobby</h1>
-                <div><input placeholder=" Name" type="text" className="mt-5"
+                <div><input placeholder=" Name" type="text" className="mt-5 w-56"
                 onChange={(event) => setName(event.target.value)} /></div>
 
-                <div><input placeholder=" Room" type="text" className="mt-5"
+                <div><input placeholder=" Room" type="text" className="mt-5 w-56"
                 onChange={(event) => setTheater(event.target.value)} /></div>
 
                 <div className="flex justify-center items-center">
