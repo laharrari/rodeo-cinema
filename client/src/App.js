@@ -7,7 +7,7 @@ import {
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Lobby from './Components/Lobby';
-import Theater from './Views/Theater';
+import Theater from './Components/Theater';
 
 function App() {
   return (

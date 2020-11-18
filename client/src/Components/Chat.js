@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
+import InfoBar from './InfoBar';
 
 let socket;
 
-function Theater(props) {
+function Chat(props) {
     const [name, setName] = useState('');
     const [theater, setTheater] = useState('');
     const [message, setMessage] = useState('');
@@ -43,12 +44,10 @@ function Theater(props) {
     return (
         <div className="flex justify-center items-center">
             <div className="flex flex-col justify-between h-3/5 w-1/3">
-                <input value={message} onChange={(event) => setMessage(event.target.value)}
-                onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
-                />
+                <InfoBar theater={theater} />
             </div>
         </div>
     )
 }
 
-export default Theater;
+export default Chat;
