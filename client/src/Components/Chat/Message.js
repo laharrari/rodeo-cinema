@@ -3,10 +3,10 @@ import ReactEmoji from 'react-emoji';
 
 function Message({ message, name }) {
     let isSentByCurrentUser = false;
-
+    console.log(message);
     const trimmedName = name.trim().toLowerCase();
 
-    if (message.user === trimmedName) {
+    if (message.username === trimmedName) {
         isSentByCurrentUser = true;
     }
 
@@ -15,7 +15,7 @@ function Message({ message, name }) {
         ?   (
                 <div className="">
                     <div className="">
-                        <p className="">{trimmedName}</p>
+                        <p className="">{trimmedName} - {message.time}</p>
                         <p className="">{ReactEmoji.emojify(message.text)}</p>
                     </div>
                 </div>
@@ -23,7 +23,7 @@ function Message({ message, name }) {
             : (
                 <div className="">
                     <div className="">
-                        <p className="">{message.user}</p>
+                        <p className="">{message.username} - {message.time}</p>
                         <p className="">{ReactEmoji.emojify(message.text)}</p>
                     </div>
                 </div>
