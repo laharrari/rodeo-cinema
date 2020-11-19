@@ -27,7 +27,11 @@ function userLeave(id) {
 }
 
 function getUser(id) {
-    users.find((user) => user.id === id);
+    const index = users.find((user) => user.id === id);
+
+    if (index) {
+        return index;
+    }
 }
 
 function getTheaterUsers(theater) {
