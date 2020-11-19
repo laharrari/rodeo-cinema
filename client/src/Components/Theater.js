@@ -24,7 +24,7 @@ function Theater(props) {
     return (
         <div>
             <Video />
-            <Chat />
+            <Chat theater={theater} />
         </div>
     )
 }

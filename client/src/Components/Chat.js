@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from "react";
 import socket from '../socketConfig';
+import ChatInfo from './ChatInfo';
+import ChatInput from './ChatInput';
 
-function Chat() {
+function Chat({ theater }) {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
         socket.on('message', message => {
-          setMessages(messages => [ ...messages, message ]);
+            setMessages(messages => [ ...messages, message ]);
         });
     }, []);
 
-    console.log(message, messages);
+    const sendMessage = (event) => {
+        event.preventDefault();
+
+        if(message) {
+            socket.emit('sendMessage', message, () => setMessage(''));
+        }
+    }
 
     return (
-        <div>
-
+        <div className="flex justify-center items-center">
+            <div className="flex flex-col justify-between h-3/5 w-1/3">
+                <ChatInfo theater={theater} />
+                <ChatInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
+            </div>
         </div>
     )
 }
