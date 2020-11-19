@@ -21,10 +21,9 @@ io.on('connection', socket => {
             return callback(error);
         }
         
-        socket.emit('message', formatMessage('Admin', `Welcome ${user.name} to Rodeo Cinema!
-                                            You have entered theater ${user.theater}.`));
+        socket.emit('message', { user: 'Admin', text: `${user.name}, welcome to theater: ${user.theater}.`});
 
-        socket.broadcast.to(user.theater).emit('message', formatMessage('Admin', `${user.name} has joined the theater.`));
+        socket.broadcast.to(user.theater).emit('message', { user: 'Admin', text: `${user.name} has joined!` });
 
         socket.join(user.theater);
 
@@ -34,7 +33,7 @@ io.on('connection', socket => {
     socket.on('sendMessage', (message, callback) => {
         const user = getUser(socket.id);
 
-        io.to(user.theater).emit('message', formatMessage(user.name, message));
+        io.to(user.theater).emit('message', { user: user.name, text: message });
 
         callback();
     });
@@ -43,7 +42,7 @@ io.on('connection', socket => {
         const user = userLeave(socket.id);
 
         if (user) {
-            io.to(user.theater).emit('message', formatMessage('Admin', `${user.name} has left the theater.`));
+            io.to(user.theater).emit('message', { user: 'Admin', text: `${user.name} has left!` });
         }
     });
 });
