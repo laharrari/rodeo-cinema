@@ -8,10 +8,6 @@ function ChatInfo({ theater }) {
                     {theater}
                 </div>
             </div>
-
-            <div>
-                
-            </div>
         </div>
     )
 }

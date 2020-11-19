@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import socket from '../socketConfig';
+import socket from '../../socketConfig';
 import ChatInfo from './ChatInfo';
 import ChatInput from './ChatInput';
 
-function Chat({ theater }) {
+function Chat({ name, theater }) {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
 
@@ -18,6 +18,8 @@ function Chat({ theater }) {
 
         if(message) {
             socket.emit('sendMessage', message, () => setMessage(''));
+            // Clear chat input
+            setMessage('');
         }
     }
 

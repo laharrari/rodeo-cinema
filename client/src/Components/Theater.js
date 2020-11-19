@@ -3,7 +3,7 @@ import queryString from 'query-string';
 import socket from '../socketConfig';
 import { ENDPOINT } from '../Constants';
 
-import Chat from './Chat';
+import Chat from './Chat/Chat';
 import Video from './Video';
 
 function Theater(props) {
@@ -16,15 +16,17 @@ function Theater(props) {
         setName(name);
         setTheater(theater);
 
-        socket.emit('joinTheater', { name, theater }, () => {
-            
+        socket.emit('joinTheater', { name, theater }, (error) => {
+            if(error) {
+                alert(error);
+            }
         });
     }, [ENDPOINT, props.location.search]);
 
     return (
         <div>
             <Video />
-            <Chat theater={theater} />
+            <Chat name={name} theater={theater} />
         </div>
     )
 }
