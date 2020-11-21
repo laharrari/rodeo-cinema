@@ -2,10 +2,10 @@ import React from 'react';
 
 function Header() {
     return (
-        <header className="bg-discordMain p-3 flex justify-between items-center">
+        <header className="bg-discordMain p-1 flex justify-between items-center">
             <a
                 href="/"
-                className="text-discordText text-3xl p-3 text-center font-bold"
+                className="text-discordTextMain text-3xl p-3 text-center font-bold"
             >
                 Rodeo Cinema
             </a>

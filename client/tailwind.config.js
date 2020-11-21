@@ -5,7 +5,8 @@ module.exports = {
       colors: {
         discordMain: '#23272a',
         discordSec: '#2c2f33',
-        discordText: '#ffffff'
+        discordTextMain: '#ffffff',
+        discordTextSec: '#99aab5'
       },
       extend: {},
     },
