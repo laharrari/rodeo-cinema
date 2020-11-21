@@ -26,9 +26,9 @@ function Chat({ name, theater }) {
 
     return (
         <div className="flex justify-center items-center">
-            <div className="flex flex-col justify-between h-3/5 w-1/3">
+            <div className="flex flex-col justify-between w-1/3">
                 <ChatInfo theater={theater} />
-                <ChatDisplay messages={messages} />
+                <ChatDisplay messages={messages} name={name} />
                 <ChatInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
             </div>
         </div>
