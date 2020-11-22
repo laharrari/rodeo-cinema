@@ -6,7 +6,7 @@ function Message({ message, name }) {
 
     const trimmedName = name.trim().toLowerCase();
 
-    if(message.username === trimmedName) {
+    if(message.username.toLowerCase() === trimmedName) {
         isSentByCurrentUser = true;
     }
     return (
@@ -14,7 +14,7 @@ function Message({ message, name }) {
             ? (
                 <div className="flex justify-end mb-2 mt-2 pl-2 pr-2 inline-block break-all">
                     <div className="bg-discordMain text-discordTextSec p-2 rounded-xl">
-                        <p className="flex tracking-wider">{trimmedName}
+                        <p className="flex tracking-wider justify-end">{message.username}
                             <span className="text-xs pl-2 mt-1">{message.time}</span>
                         </p>
                         <div className="text-discordTextMain">

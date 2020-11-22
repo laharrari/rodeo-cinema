@@ -1,8 +1,8 @@
 const users = [];
 
 function userJoin({ id, name, theater }) {
-    name = name.trim().toLowerCase();
-    theater = theater.trim().toLowerCase();
+    name = name.trim();
+    theater = theater.trim();
 
     const existingUser = users.find((user) =>
     user.theater === theater && user.name === name);
